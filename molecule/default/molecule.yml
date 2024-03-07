@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+    image: rockylinux/rockylinux:9-ubi
+    pre_build_image: true
+provisioner:
+  name: ansible
+  inventory:
+    host_vars:
+      instance:
+        profiled_templates:
+          - template: example_script.sh.j2
+            owner: root
+            group: root
+            mode: 555
+
+verifier:
+  name: ansible

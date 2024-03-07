@@ -1,0 +1,11 @@
+---
+# tasks file for ansible_role_profiled
+
+- name: Template profile.d scripts
+  ansible.builtin.template:
+    src: "{{ item['template'] }}"
+    dest: "/etc/profile.d/{{ item['template'] | basename | replace('.j2', '') }}"
+    owner: "{{ item['owner'] | default('root') }}"
+    group: "{{ item['group'] | default('root') }}"
+    mode: "{{ item['mode'] | default('0555') }}"
+  loop: "{{ profiled_templates }}"

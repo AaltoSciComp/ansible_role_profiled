@@ -1,0 +1,13 @@
+galaxy_info:
+  author: Simo Tuomisto
+  namespace: aaltoscicomp
+  description: Small role for managing /etc/profile.d scripts
+  company: Aalto University
+
+  license: MIT
+
+  min_ansible_version: "2.1"
+
+  galaxy_tags: []
+
+dependencies: []

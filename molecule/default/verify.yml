@@ -1,0 +1,14 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check example script
+      ansible.builtin.stat:
+        path: /etc/profile.d/example_script.sh
+      register: example_stat
+    - name: Example assertion
+      ansible.builtin.assert:
+        that: example_stat.stat.isreg
